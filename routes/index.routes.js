@@ -37,7 +37,7 @@ router.route("/delete/:id").delete(auth.checkAdmin, schedule.deleteSchedule)
 
 router.route("/auth/admin").post(auth.validateAdmin)
 
-// router.route("/teste").get(schedule.teste123)
+// router.route("/teste").get(schedule.teste)
 
 
 module.exports = router

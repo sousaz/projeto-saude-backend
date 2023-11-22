@@ -18,8 +18,8 @@ module.exports = {
                     ...consulta.toObject(),
                     nome_medico: medico ? medico.nome : null,
                     nome_ubs: ubs ? ubs.nome : null,
-                    dia: consulta.data.toLocaleDateString().replaceAll("/", "-"),
-                    horario: `${consulta.data.toLocaleTimeString().split(":")[0]}:${consulta.data.toLocaleTimeString().split(":")[1]}`
+                    dia: consulta.data.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' }).replaceAll("/", "-"),
+                    horario: `${consulta.data.toLocaleTimeString('pt-BR', { timeZone: 'America/Sao_Paulo' }).split(":")[0]}:${consulta.data.toLocaleTimeString().split(":")[1]}`
                 };
             }))
             res.status(200).json(consultasComInfoAdicional)
@@ -148,8 +148,8 @@ module.exports = {
                     ...consulta.toObject(),
                     nome_medico: medico ? medico.nome : null,
                     nome_ubs: ubs ? ubs.nome : null,
-                    dia: consulta.data.toLocaleDateString().replaceAll("/", "-"),
-                    horario: `${consulta.data.toLocaleTimeString().split(":")[0]}:${consulta.data.toLocaleTimeString().split(":")[1]}`
+                    dia: consulta.data.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' }).replaceAll("/", "-"),
+                    horario: `${consulta.data.toLocaleTimeString('pt-BR', { timeZone: 'America/Sao_Paulo' }).split(":")[0]}:${consulta.data.toLocaleTimeString().split(":")[1]}`
                 };
             }));
             res.status(200).json(consultasComInfoAdicional)
@@ -171,8 +171,8 @@ module.exports = {
                     nome_medico: medico ? medico.nome : null,
                     nome_ubs: ubs ? ubs.nome : null,
                     nome_paciente: paciente ? `${paciente.nome} ${paciente.sobrenome}` : null,
-                    dia: consulta.data.toLocaleDateString().replaceAll("/", "-"),
-                    horario: `${consulta.data.toLocaleTimeString().split(":")[0]}:${consulta.data.toLocaleTimeString().split(":")[1]}`
+                    dia: consulta.data.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' }).replaceAll("/", "-"),
+                    horario: `${consulta.data.toLocaleTimeString('pt-BR', { timeZone: 'America/Sao_Paulo' }).split(":")[0]}:${consulta.data.toLocaleTimeString().split(":")[1]}`
                 };
             }));
             res.status(200).json(consultasComInfoAdicional)
@@ -195,5 +195,29 @@ module.exports = {
             res.status(400).json({ error: 'Consulta não encontrada'})
         }
     },
+    // async teste(req, res) {
+    //     const page = 2
+    //     try {
+    //         const consulta = await Consulta.find().skip(page * limit - limit).limit(limit).sort({data: 'asc'})
+    //         const consultasComInfoAdicional = await Promise.all(consulta.map(async (consulta) => {
+    //             const medico = await Medico.findById(consulta.id_medico);
+    //             const ubs = await Ubs.findById(consulta.id_ubs);
+    //             const paciente = await Paciente.findById(consulta.id_paciente)
+    
+    //             return {
+    //                 ...consulta.toObject(),
+    //                 nome_medico: medico ? medico.nome : null,
+    //                 nome_ubs: ubs ? ubs.nome : null,
+    //                 nome_paciente: paciente ? `${paciente.nome} ${paciente.sobrenome}` : null,
+    //                 dia: consulta.data.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' }).replaceAll("/", "-"),
+    //                 horario: `${consulta.data.toLocaleTimeString('pt-BR', { timeZone: 'America/Sao_Paulo' }).split(":")[0]}:${consulta.data.toLocaleTimeString().split(":")[1]}`
+    //             };
+    //         }));
+    //         res.status(200).json(consultasComInfoAdicional)
+    //     } catch (error) {
+    //         console.log(error)
+    //         res.status(400).json({ msg: error})
+    //     }
+    // },
 
 }
