@@ -21,7 +21,7 @@ router.route("/consulta/:id").put(auth.checkToken, schedule.makeSchedule)
 
 router.route("/auth/validateToken").post(auth.validateToken)
 
-router.route("/options").get(auth.checkToken, options.loadOptions)
+router.route("/options/:id").get(options.loadOptions)
 
 router.route("/doctor").post(auth.checkAdmin, doctor.createDoctor)
 
