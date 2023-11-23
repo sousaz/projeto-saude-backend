@@ -9,7 +9,7 @@ const queries = require("../api/queries")
 
 
 
-router.route('/consultas/:page').get(auth.checkAdmin, schedule.loadAllSchedules)
+router.route('/consultas/:page/:id').get(auth.checkAdmin, schedule.loadAllSchedules)
 
 router.route("/auth/register").post(auth.registerUser)
 
