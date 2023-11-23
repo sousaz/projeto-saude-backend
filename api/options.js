@@ -34,4 +34,21 @@ module.exports = {
             res.status(400).json({ msg: 'Erro na consulta'})
         } 
     },
+    async loadOptionsSchedule(req, res){
+        try {
+            const consulta =  await Consulta.find({}, 'tipo')
+            const ubs = await Ubs.find({}, 'nome')
+            const medico = await Medico.find({}, 'nome especialidade')
+            const tipo = filterRepetitiveOptions(consulta)
+            const response = {
+                tipoConsulta: tipo,
+                nomeUbs: ubs,
+                medico: medico
+            }
+            res.status(200).json(response)
+        } catch (error) {
+            console.log(error);
+            res.status(400).json({ msg: 'Erro na consulta'})
+        } 
+    },
 }
