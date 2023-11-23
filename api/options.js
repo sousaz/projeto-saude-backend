@@ -16,10 +16,11 @@ function filterRepetitiveOptions(data) {
 
 module.exports = {
     async loadOptions(req, res){
+        const id = req.body.id
         try {
             const consulta = await Consulta.find({}, 'tipo')
             const ubs = await Ubs.find({}, 'nome')
-            const medico = await Medico.find({}, 'nome especialidade')
+            const medico = id ? await Medico.find({id_ubs: id}, 'nome especialidade') : await Medico.find({}, 'nome especialidade')
             const tipo = filterRepetitiveOptions(consulta)
             const response = {
                 tipoConsulta: tipo,

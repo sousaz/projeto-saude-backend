@@ -25,7 +25,7 @@ router.route("/options").get(auth.checkToken, options.loadOptions)
 
 router.route("/doctor").post(auth.checkAdmin, doctor.createDoctor)
 
-router.route("/ubs").post(auth.checkAdmin, ubs.createUbs)
+router.route("/ubs").post(ubs.createUbs)
 
 router.route("/query").post(auth.checkAdmin, queries.createQuery)
 
