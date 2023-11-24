@@ -22,7 +22,7 @@ module.exports = {
         if(doutorExiste)
             return res.status(422).json({ msg: "Médico já cadastrado!" })
 
-        const ubsExiste = await Ubs.findOne({ id: id_ubs })
+        const ubsExiste = await Ubs.findById(id_ubs)
 
         if(!ubsExiste)
             return res.status(422).json({ msg: "Ubs não cadastrado!" })
