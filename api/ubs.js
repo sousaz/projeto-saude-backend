@@ -50,9 +50,9 @@ module.exports = {
             })
 
             await ubs.save()
-            res.status(200).json({ msg: "inserido na tabela ubs com sucesso"})
+            res.status(200).json({ msg: "Ubs cadastrada com sucesso"})
         } catch (error) {
-            res.status(400).json({ msg: 'Erro ao adicionar na tabela ubs'})
+            res.status(400).json({ msg: 'Erro ao cadastrar ubs'})
         }
     }
 }

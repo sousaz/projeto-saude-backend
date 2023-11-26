@@ -35,9 +35,9 @@ module.exports = {
 
         try {
             await medico.save()
-            res.status(200).json({ msg: "inserido na tabela medico com sucesso" })
+            res.status(200).json({ msg: "Medico cadastrado com sucesso" })
         } catch (error) {
-            res.status(400).json({ msg: 'Erro ao adicionar na tabela medico' })
+            res.status(400).json({ msg: 'Erro ao cadastrar medico' })
         }
     }
 }
